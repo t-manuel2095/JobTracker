@@ -13,7 +13,6 @@ from dateutil.relativedelta import relativedelta
         
 
 class JobApplicationViewSet(viewsets.ModelViewSet):
-    queryset = JobApplication.objects.all()
     serializer_class = serializers.JobApplicationSerializer
     permission_classes = [permissions.IsAuthenticated, IsOwner]
 
@@ -24,9 +23,35 @@ class JobApplicationViewSet(viewsets.ModelViewSet):
     ordering_fields = ['applied_date', 'created_at']
     ordering = ['-applied_date']
 
+    def get_queryset(self):
+        # Users only see their own jobs
+        return JobApplication.objects.filter(user=self.request.user)
+
     #Without this, the user won't be automatically assigned when creating a job.
     def perform_create(self, serializer):
         serializer.save(user=self.request.user)
+    
+    @action(detail=True, methods=['get'])
+    def status_timeline(self, request, pk=None):
+        """Return formatted status history for frontend consumption"""
+        job = self.get_object()
+        history = StatusHistory.objects.filter(job=job).order_by('changed_at')
+        
+        formatted_timeline = [
+            {
+                'date': entry.changed_at,
+                'from_status': entry.old_status,
+                'to_status': entry.new_status,
+                'label': f'{entry.old_status.title()} → {entry.new_status.title()}'
+            }
+            for entry in history
+        ]
+        
+        return Response({
+            'job_id': job.id,
+            'company': job.company,
+            'timeline': formatted_timeline
+        })
 
 
 class StatusHistoryViewSet(viewsets.ReadOnlyModelViewSet):
@@ -36,6 +61,7 @@ class StatusHistoryViewSet(viewsets.ReadOnlyModelViewSet):
     def get_queryset(self):
         # job_application_pk comes from the nested router
         job_id = self.kwargs.get('job_application_pk')
+        # Filter by both job_id AND current user to ensure ownership
         return StatusHistory.objects.filter(
             job_id=job_id,
             job__user=self.request.user
