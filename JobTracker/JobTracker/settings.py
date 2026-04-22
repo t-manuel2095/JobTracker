@@ -1,4 +1,4 @@
-"""
+﻿"""
 Django settings for JobTracker project.
 
 Based on 'django-admin startproject' using Django 2.1.2.
@@ -43,6 +43,7 @@ INSTALLED_APPS = [
     'rest_framework',
     'djoser',
     'corsheaders',
+    'django_filters',
 ]
 
 # Middleware framework
@@ -133,6 +134,11 @@ REST_FRAMEWORK = {
     'DEFAULT_PERMISSION_CLASSES': [
         'rest_framework.permissions.IsAuthenticated',
     ],
+    'DEFAULT_FILTER_BACKENDS': [
+        'django_filters.rest_framework.DjangoFilterBackend',
+        'rest_framework.filters.SearchFilter',
+        'rest_framework.filters.OrderingFilter',
+    ],
 }
 
 CORS_ALLOWED_ORIGINS = [
@@ -140,6 +146,8 @@ CORS_ALLOWED_ORIGINS = [
     "http://127.0.0.1:3000",
     "http://localhost:8080",      # Vue frontend
     "http://127.0.0.1:8080",
+    "http://localhost:8001",      # Your vanilla JS frontend
+    "http://127.0.0.1:8001",
 ]
 
 

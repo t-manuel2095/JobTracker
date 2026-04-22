@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JobTracker - Track Your Job Applications</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <div id="app">
+        <!-- Navigation will be injected here -->
+        <nav class="navbar">
+            <div class="navbar-container">
+                <div class="navbar-brand">
+                    <h1>📋 JobTracker</h1>
+                </div>
+                <ul class="nav-menu">
+                    <li><a href="#dashboard" class="nav-link">Dashboard</a></li>
+                    <li><a href="#analytics" class="nav-link">Analytics</a></li>
+                    <li><button id="logoutBtn" class="btn btn-logout" style="display:none;">Logout</button></li>
+                </ul>
+            </div>
+        </nav>
+
+        <!-- Main Content Area -->
+        <div class="container">
+            <div id="auth-container" class="auth-container">
+                <!-- Auth pages will be injected here -->
+            </div>
+            <div id="main-content" style="display:none;">
+                <!-- Dashboard and other pages will be injected here -->
+            </div>
+        </div>
+    </div>
+
+    <!-- Scripts -->
+    <script src="js/api.js"></script>
+    <script src="js/auth.js"></script>
+    <script src="js/dashboard.js"></script>
+    <script src="js/analytics.js"></script>
+    <script src="js/main.js"></script>
+</body>
+</html>
