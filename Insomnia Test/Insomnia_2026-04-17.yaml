@@ -1,0 +1,266 @@
+type: collection.insomnia.rest/5.0
+schema_version: "5.1"
+name: Scratch Pad
+meta:
+  id: wrk_scratchpad
+  created: 1774900095143
+  modified: 1774900095143
+  description: ""
+collection:
+  - name: Job Tracker Test 1
+    meta:
+      id: fld_8c736fc682a34f14bddacad75a7eed8b
+      created: 1776447707150
+      modified: 1776450455673
+      sortKey: -1776447707150
+      description: ""
+    children:
+      - url: http://127.0.0.1:8000/auth/jwt/create/
+        name: GET JWT Token
+        meta:
+          id: req_399afc0f5cec486c8e409346b080ce4c
+          created: 1776447712468
+          modified: 1776449772756
+          isPrivate: false
+          description: ""
+          sortKey: -1776447714248
+        method: POST
+        body:
+          mimeType: application/json
+          text: |-
+            {
+              "username": "temp2",
+              "password": "temp2"
+            }
+        headers:
+          - name: Content-Type
+            value: application/json
+          - name: User-Agent
+            value: insomnia/12.5.0
+            description: ""
+            disabled: false
+        settings:
+          renderRequestBody: true
+          encodeUrl: true
+          followRedirects: global
+          cookies:
+            send: true
+            store: true
+          rebuildPath: true
+      - url: http://127.0.0.1:8000/api/jobs/
+        name: A Job Application
+        meta:
+          id: req_42b95083087a4f6eaf42910267ac1392
+          created: 1776447828996
+          modified: 1776448786486
+          isPrivate: false
+          description: ""
+          sortKey: -1776447714148
+        method: POST
+        body:
+          mimeType: application/json
+          text: |-
+            {
+              "company": "Google",
+              "role": "Frontend Engineer",
+              "status": "applied",
+              "applied_date": "2026-04-17",
+              "notes": "Applied for frontend position"
+            }
+        headers:
+          - name: Content-Type
+            value: application/json
+          - name: User-Agent
+            value: insomnia/12.5.0
+            description: ""
+            disabled: false
+        authentication:
+          type: bearer
+          token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzc2NDUxNDE3LCJpYXQiOjE3NzY0NDc4MTcsImp0aSI6IjY2NmI2N2JjZTNjYjRhOGM4NTJmMWYwZDg3NWEyMmIwIiwidXNlcl9pZCI6IjUifQ.MpNJFjAdNlWcOJINWaBVPYuV7zOJBnlEhPtjSHTeMDA
+          prefix: Bearer
+        settings:
+          renderRequestBody: true
+          encodeUrl: true
+          followRedirects: global
+          cookies:
+            send: true
+            store: true
+          rebuildPath: true
+      - url: http://127.0.0.1:8000/api/jobs/
+        name: All Job Applications
+        meta:
+          id: req_e5935ddcc9734487b6247d243f2ed825
+          created: 1776448525248
+          modified: 1776448707367
+          isPrivate: false
+          description: ""
+          sortKey: -1776447714048
+        method: GET
+        headers:
+          - name: User-Agent
+            value: insomnia/12.5.0
+            description: ""
+            disabled: false
+        authentication:
+          type: bearer
+          token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzc2NDUxNDE3LCJpYXQiOjE3NzY0NDc4MTcsImp0aSI6IjY2NmI2N2JjZTNjYjRhOGM4NTJmMWYwZDg3NWEyMmIwIiwidXNlcl9pZCI6IjUifQ.MpNJFjAdNlWcOJINWaBVPYuV7zOJBnlEhPtjSHTeMDA
+        settings:
+          renderRequestBody: true
+          encodeUrl: true
+          followRedirects: global
+          cookies:
+            send: true
+            store: true
+          rebuildPath: true
+      - url: http://127.0.0.1:8000/api/jobs/2/
+        name: Certain Job
+        meta:
+          id: req_bd94ca652d514e6992df091778573a28
+          created: 1776449117385
+          modified: 1776449855800
+          isPrivate: false
+          description: ""
+          sortKey: -1776447713948
+        method: GET
+        headers:
+          - name: User-Agent
+            value: insomnia/12.5.0
+            description: ""
+            disabled: false
+        authentication:
+          type: bearer
+          token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzc2NDUxNDE3LCJpYXQiOjE3NzY0NDc4MTcsImp0aSI6IjY2NmI2N2JjZTNjYjRhOGM4NTJmMWYwZDg3NWEyMmIwIiwidXNlcl9pZCI6IjUifQ.MpNJFjAdNlWcOJINWaBVPYuV7zOJBnlEhPtjSHTeMDA
+        settings:
+          renderRequestBody: true
+          encodeUrl: true
+          followRedirects: global
+          cookies:
+            send: true
+            store: true
+          rebuildPath: true
+      - url: http://127.0.0.1:8000/api/jobs/3/
+        name: Update Job Status
+        meta:
+          id: req_8b7ce5535a0341978df9fb1d70927bed
+          created: 1776449212738
+          modified: 1776449432094
+          isPrivate: false
+          description: ""
+          sortKey: -1776447713848
+        method: PUT
+        body:
+          mimeType: application/json
+          text: |-
+            {
+              "company": "Google",
+              "role": "Backend Engineer",
+              "status": "interview",
+              "applied_date": "2026-04-17",
+              "notes": "Had first interview"
+            }
+        headers:
+          - name: Content-Type
+            value: application/json
+          - name: User-Agent
+            value: insomnia/12.5.0
+            description: ""
+            disabled: false
+        authentication:
+          type: bearer
+          token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzc2NDUxNDE3LCJpYXQiOjE3NzY0NDc4MTcsImp0aSI6IjY2NmI2N2JjZTNjYjRhOGM4NTJmMWYwZDg3NWEyMmIwIiwidXNlcl9pZCI6IjUifQ.MpNJFjAdNlWcOJINWaBVPYuV7zOJBnlEhPtjSHTeMDA
+        settings:
+          renderRequestBody: true
+          encodeUrl: true
+          followRedirects: global
+          cookies:
+            send: true
+            store: true
+          rebuildPath: true
+      - url: http://127.0.0.1:8000/api/jobs/3/
+        name: Job Application
+        meta:
+          id: req_48e27ab099be492da0c74995cdc5cc0b
+          created: 1776449482770
+          modified: 1776449525714
+          isPrivate: false
+          description: ""
+          sortKey: -1776447713748
+        method: DELETE
+        headers:
+          - name: User-Agent
+            value: insomnia/12.5.0
+            description: ""
+            disabled: false
+        authentication:
+          type: bearer
+          token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzc2NDUxNDE3LCJpYXQiOjE3NzY0NDc4MTcsImp0aSI6IjY2NmI2N2JjZTNjYjRhOGM4NTJmMWYwZDg3NWEyMmIwIiwidXNlcl9pZCI6IjUifQ.MpNJFjAdNlWcOJINWaBVPYuV7zOJBnlEhPtjSHTeMDA
+        settings:
+          renderRequestBody: true
+          encodeUrl: true
+          followRedirects: global
+          cookies:
+            send: true
+            store: true
+          rebuildPath: true
+      - url: http://127.0.0.1:8000/api/jobs/
+        name: Verify Permissions
+        meta:
+          id: req_e1a90332d21f4bd6a68d4dbe6db2e742
+          created: 1776449700150
+          modified: 1776449726006
+          isPrivate: false
+          description: ""
+          sortKey: -1776447713648
+        method: GET
+        headers:
+          - name: User-Agent
+            value: insomnia/12.5.0
+            description: ""
+            disabled: false
+        settings:
+          renderRequestBody: true
+          encodeUrl: true
+          followRedirects: global
+          cookies:
+            send: true
+            store: true
+          rebuildPath: true
+      - url: http://127.0.0.1:8000/api/jobs/2/
+        name: Verify Permissions - Other User's Job
+        meta:
+          id: req_1210b14453274145a095c42357250c3d
+          created: 1776449798962
+          modified: 1776449861283
+          isPrivate: false
+          description: ""
+          sortKey: -1776447713548
+        method: GET
+        headers:
+          - name: User-Agent
+            value: insomnia/12.5.0
+            description: ""
+            disabled: false
+        authentication:
+          type: bearer
+          token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzc2NDUzMzc0LCJpYXQiOjE3NzY0NDk3NzQsImp0aSI6IjFlNGZhZjIzMDZlZDQxYjhhZjBhYjI5MGRhYzEwMTI1IiwidXNlcl9pZCI6IjYifQ.HjsgN2KXwFmdGsS3iVeDByXt6vNZxzY9YUdEq-o49hM
+        settings:
+          renderRequestBody: true
+          encodeUrl: true
+          followRedirects: global
+          cookies:
+            send: true
+            store: true
+          rebuildPath: true
+cookieJar:
+  name: Default Jar
+  meta:
+    id: jar_99d30891da4bdcebc63947a8fc17f076de878684
+    created: 1774900107065
+    modified: 1774900107065
+environments:
+  name: Base Environment
+  meta:
+    id: env_99d30891da4bdcebc63947a8fc17f076de878684
+    created: 1774900107064
+    modified: 1774900107064
+    isPrivate: false

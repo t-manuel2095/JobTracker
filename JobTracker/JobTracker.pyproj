@@ -5,6 +5,9 @@
     <Name>JobTracker</Name>
     <RootNamespace>JobTracker</RootNamespace>
     <InterpreterId>MSBuild|env|$(MSBuildProjectFullPath)</InterpreterId>
+    <TestFramework>unittest</TestFramework>
+    <UnitTestPattern>test*.py</UnitTestPattern>
+    <UnitTestRootDirectory>.</UnitTestRootDirectory>
   </PropertyGroup>
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
@@ -36,6 +39,11 @@
     <Compile Include="jobs\migrations\__init__.py" />
     <Compile Include="jobs\models.py" />
     <Compile Include="jobs\tests.py" />
+    <Compile Include="jobs\tests\test_api.py" />
+    <Compile Include="jobs\tests\test_models.py" />
+    <Compile Include="jobs\tests\test_permissions.py" />
+    <Compile Include="jobs\tests\test_serializers.py" />
+    <Compile Include="jobs\tests\__init__.py" />
     <Compile Include="jobs\urls.py" />
     <Compile Include="jobs\views.py" />
     <Compile Include="jobs\__init__.py" />
@@ -55,11 +63,23 @@
   <ItemGroup>
     <Folder Include="jobs\" />
     <Folder Include="jobs\migrations\" />
+    <Folder Include="jobs\tests\" />
+    <Folder Include="jobs\tests\__pycache__\" />
     <Folder Include="JobTracker\" />
     <Folder Include="users\" />
     <Folder Include="users\migrations\" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="jobs\tests\__pycache__\test_api.cpython-314.pyc" />
+    <Content Include="jobs\tests\__pycache__\test_api.cpython-39.pyc" />
+    <Content Include="jobs\tests\__pycache__\test_models.cpython-314.pyc" />
+    <Content Include="jobs\tests\__pycache__\test_models.cpython-39.pyc" />
+    <Content Include="jobs\tests\__pycache__\test_permissions.cpython-314.pyc" />
+    <Content Include="jobs\tests\__pycache__\test_permissions.cpython-39.pyc" />
+    <Content Include="jobs\tests\__pycache__\test_serializers.cpython-314.pyc" />
+    <Content Include="jobs\tests\__pycache__\test_serializers.cpython-39.pyc" />
+    <Content Include="jobs\tests\__pycache__\__init__.cpython-314.pyc" />
+    <Content Include="jobs\tests\__pycache__\__init__.cpython-39.pyc" />
     <Content Include="requirements.txt" />
     <Content Include="db.sqlite3" />
   </ItemGroup>

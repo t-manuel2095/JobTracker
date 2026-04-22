@@ -12,6 +12,9 @@ django-cors-headers = "*"
 python-decouple = "*"
 mssql-django = "*"
 pyodbc = "*"
+django-filter = "*"
+drf-nested-routers = "*"
+python-dateutil = "*"
 
 [dev-packages]
 pytest = "*"
